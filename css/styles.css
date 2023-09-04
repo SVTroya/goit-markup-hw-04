@@ -1,0 +1,347 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --iris: #4d5ae5;
+    --ocean: #404bbf;
+    --navy-blue: #2e2f42;
+    --green: #31d0aa;
+    --slate: #434455;
+    --light_slate: #8e8f99;
+    --cornflower: #e7e9fc;
+    --cloud: #f4f4fd;
+    --white: #ffffff;
+    --dairy: #fcfcfc;
+    --navy-blue-modal: #2e2f4266;
+    --grey: #2e2f42b2;
+
+    --color-primary-brand: var(--iris);
+    --color-pressed-state: var(--ocean);
+    --color-text-dark: var(--navy-blue);
+    --color-text-light: var(--white);
+    --color-logo-text-dark: var(--navy-blue);
+    --color-logo-text-light: var(--cloud);
+    --color-success: var(--green);
+    --color-text: var(--slate);
+    --color-subtle-text: var(--light_slate);
+    --color-accent: var(--cornflower);
+    --color-light: var(--cloud);
+    --color-hero-background: var(--grey);
+    --color-white-background: var(--white);
+    --color-dark-background: var(--navy-blue);
+    --color-modal-background: var(--dairy);
+    --color-modal-overlay: var(--navy-blue-modal);
+
+    --font-main: "Roboto", sans-serif;
+    --font-logo: "Raleway", sans-serif;
+}
+
+body {
+    background-color: var(--color-white-background);
+    color: var(--color-text);
+    font-family: var(--font-main);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ul,
+ol {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.list {
+    list-style: none;
+}
+
+.list.qualities,
+.list.doings,
+.list.team,
+.list.filters,
+.list.projects {
+    display: flex;
+    gap: 24px;
+}
+
+.list.filters {
+    justify-content: center;
+    margin-bottom: 72px;
+}
+
+.list.projects {
+    flex-wrap: wrap;
+    row-gap: 48px;
+}
+
+.container {
+    width: 1158px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.page-header {
+    border-bottom: 1px solid var(--color-accent);
+}
+
+.page-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.link:hover,
+.link:focus,
+.link.menu-item:hover,
+.link.menu-item:focus {
+    color: var(--color-pressed-state);
+}
+
+.link.logo {
+    color: var(--color-primary-brand);
+    font-family: var(--font-logo);
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    line-height: 1.17;
+    display: inline-block;
+    margin-right: 76px
+}
+
+.page-footer .link.logo {
+    margin-bottom: 16px;
+}
+
+.page-header .logo-main {
+    color: var(--color-logo-text-dark);
+}
+
+.page-footer .logo-main {
+    color: var(--color-logo-text-light);
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.page-header .menu,
+.address .list {
+    display: flex;
+    gap: 40px;
+}
+
+.navigation .menu-item {
+    display: inline-block;
+    padding: 24px 0;
+}
+
+.link.menu-item {
+    color: var(--color-text-dark);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.address {
+    font-style: normal;
+    letter-spacing: 0.02em;
+}
+
+.section {
+    padding: 120px 0;
+}
+
+.section.section-hero {
+    background-color: var(--color-dark-background);
+    padding: 188px 0;
+}
+
+.section.section-our-projects {
+    padding-top: 96px;
+}
+
+.section.section-hero .title {
+    max-width: 496px;
+    color: var(--color-text-light);
+    font-size: 56px;
+    line-height: 1.07;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section.section-hero .button {
+    min-width: 169px;
+    display: block;
+    margin-top: 48px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list.qualities .quality,
+.list.team .team-member {
+    flex-basis: calc((100% - 3 * 24px) / 4);
+}
+
+list.doings .example,
+list.projects .project {
+    flex-basis: calc((100% - 2 * 24px) / 3);
+}
+
+.section.section-what-are-we-doing {
+    padding-top: 0;
+}
+
+.section-our-team {
+    background-color: var(--color-light);
+}
+
+.section-name {
+    color: var(--color-text-dark);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.11;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    margin-bottom: 72px;
+    text-align: center;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.button {
+    background-color: var(--color-primary-brand);
+    color: var(--color-text-light);
+    font-family: inherit;
+    line-height: inherit;
+    font-size: inherit;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+.button:hover,
+.button:focus {
+    background-color: var(--color-pressed-state);
+}
+
+.button.filter {
+    background-color: var(--color-light);
+    color: var(--color-primary-brand);
+    cursor: pointer;
+    border: 1px solid var(--color-accent);
+    border-radius: 4px;
+    box-shadow: none;
+    padding: 12px 24px;
+}
+
+.button.filter:hover,
+.button.filter:focus {
+    background-color: var(--color-pressed-state);
+    color: var(--color-text-light);
+    border: 1px solid transparent;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12),
+    0 2px 1px 0 rgba(0, 0, 0, 0.08),
+    0 3px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.employee-name,
+.quality-name,
+.project-name {
+    color: var(--color-text-dark);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    margin-bottom: 8px
+}
+
+.team-member {
+    background-color: var(--color-white-background);
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16),
+    0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
+
+.team-member .container-team-member {
+    padding: 32px 0;
+}
+
+.team-member .employee-name {
+    text-align: center;
+}
+
+.team-member .position {
+    text-align: center;
+}
+
+.project a:hover,
+.project a:focus {
+    color: currentColor;
+}
+
+.project .container-project-info {
+    padding: 32px 16px;
+    border: 1px solid var(--color-accent);
+    border-top: none;
+}
+
+.project-type {
+    text-transform: capitalize;
+}
+
+.page-footer {
+    color: var(--color-light);
+    background-color: var(--color-dark-background);
+    padding: 100px 0;
+}
+
+.page-footer .motivation-text {
+    max-width: 264px;
+}
+
