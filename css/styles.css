@@ -74,6 +74,10 @@ img {
 .link {
     text-decoration: none;
     color: inherit;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .list {
@@ -84,7 +88,9 @@ img {
 .list.doings,
 .list.team,
 .list.filters,
-.list.projects {
+.list.projects,
+.list.contacts,
+.list.customers {
     display: flex;
     gap: 24px;
 }
@@ -179,6 +185,10 @@ img {
 
 .section.section-hero {
     background-color: var(--color-dark-background);
+    background-image: linear-gradient(to top, var(--color-hero-background), var(--color-hero-background)),
+    url("../images/people_office.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 188px 0;
 }
 
@@ -261,6 +271,10 @@ list.projects .project {
     border: none;
     border-radius: 4px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button:hover,
@@ -276,6 +290,10 @@ list.projects .project {
     border-radius: 4px;
     box-shadow: none;
     padding: 12px 24px;
+
+    transition-property: background-color, color, border, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button.filter:hover,
@@ -318,11 +336,25 @@ list.projects .project {
 
 .team-member .position {
     text-align: center;
+    margin-bottom: 8px;
 }
 
 .project a:hover,
 .project a:focus {
     color: currentColor;
+}
+
+.project {
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project:hover,
+.project:focus {
+    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16),
+    0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
 .project .container-project-info {
@@ -345,3 +377,87 @@ list.projects .project {
     max-width: 264px;
 }
 
+.link.menu-item.current {
+    color: var(--color-pressed-state);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 0;
+    gap:20px
+}
+
+.link.menu-item.current::after {
+    background-color: var(--color-pressed-state);
+    content: "";
+    height: 4px;
+    border-radius: 2px;
+}
+
+.container-quality-icon,
+.social,
+.customer {
+    line-height: 0
+}
+
+.container-quality-icon {
+    border-radius: 4px;
+    background: var(--color-light);
+    margin-bottom: 8px;
+}
+
+.quality_icon {
+    max-width: 64px;
+    max-height: 64px;
+    margin: 24px 100px;
+}
+
+.list.contacts {
+    justify-content: center;
+}
+
+.social {
+    background-color: var(--color-primary-brand);
+    border-radius: 50%;
+}
+
+.social-icon {
+    fill: var(--color-text-light);
+    width: 16px;
+    height: 16px;
+    margin: 12px;
+}
+
+.customer {
+    border-radius: 4px;
+    border: 1px solid var(--color-subtle-text);
+}
+
+.customer-icon {
+    fill: var(--color-subtle-text);
+    width: 102px;
+    height: 54px;
+    margin: 16px 32px;
+}
+
+.page-footer .container {
+    display: flex;
+}
+
+.page-footer .container-social {
+    margin-left: 120px;
+}
+
+.page-footer .social-icon {
+    width: 24px;
+    height: 24px;
+    margin: 8px;
+}
+
+.page-footer .social-media-header {
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.page-footer .list.contacts {
+    gap: 16px;
+}
