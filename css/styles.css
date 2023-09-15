@@ -114,6 +114,10 @@ img {
 
 .page-header {
     border-bottom: 1px solid var(--color-accent);
+    box-shadow:
+            0 2px 1px rgba(46, 47, 66, 0.08),
+            0 1px 1px rgba(46, 47, 66, 0.16),
+            0 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .page-header .container {
@@ -186,11 +190,12 @@ img {
 
 .section.section-hero {
     background-color: var(--color-dark-background);
-    background-image: linear-gradient(to top, var(--color-hero-background), var(--color-hero-background)),
-    url("../images/people_office.jpg");
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url("../images/people_office.jpg");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
     padding: 188px 0;
+    max-width: 1440px;
 }
 
 .section.section-our-projects {
@@ -387,55 +392,62 @@ list.projects .project {
 }
 
 .link.menu-item.current {
+    position: relative;
     color: var(--color-pressed-state);
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    padding-bottom: 0;
-    gap: 20px
 }
 
 .link.menu-item.current::after {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
     background-color: var(--color-pressed-state);
     content: "";
     height: 4px;
     border-radius: 2px;
-    margin-top: 1px;
-    margin-bottom: -1px;
 }
 
 .container-quality-icon,
 .social,
 .customer {
-    line-height: 0
+    line-height: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .container-quality-icon {
+    height: 112px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 4px;
     background: var(--color-light);
     margin-bottom: 8px;
 }
 
 .quality_icon {
-    max-width: 64px;
-    max-height: 64px;
-    margin: 24px 100px;
+    /*margin: 24px 100px;*/
 }
 
 .list.contacts {
     justify-content: center;
 }
 
+.contact{
+    width: 40px;
+    height: 40px;
+}
+
 .social {
     background-color: var(--color-primary-brand);
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .social-icon {
     fill: var(--color-text-light);
-    width: 16px;
-    height: 16px;
-    margin: 12px;
+    /*margin: 12px;*/
 }
 
 .customer {
@@ -453,10 +465,11 @@ list.projects .project {
 
 .page-footer .container {
     display: flex;
+    align-items: baseline;
 }
 
-.page-footer .container-social {
-    margin-left: 120px;
+.page-footer .container-motivation {
+margin-right: 120px;
 }
 
 .page-footer .social-icon {
@@ -466,6 +479,7 @@ list.projects .project {
 }
 
 .page-footer .social-media-header {
+    color: var(--color-logo-text-light);
     margin-bottom: 16px;
     font-weight: 500;
 }
