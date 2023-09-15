@@ -288,7 +288,9 @@ list.projects .project {
 }
 
 .button:hover,
-.button:focus {
+.button:focus,
+.link.social:hover,
+.link.social:focus{
     background-color: var(--color-pressed-state);
 }
 
@@ -391,6 +393,11 @@ list.projects .project {
     max-width: 264px;
 }
 
+.page-footer .link.social:hover,
+.page-footer .link.social:focus{
+    background-color: var(--color-success);
+}
+
 .link.menu-item.current {
     position: relative;
     color: var(--color-pressed-state);
@@ -443,10 +450,14 @@ list.projects .project {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon {
-    fill: var(--color-text-light);
+    fill: var(--color-light);
     /*margin: 12px;*/
 }
 
@@ -473,13 +484,11 @@ margin-right: 120px;
 }
 
 .page-footer .social-icon {
-    width: 24px;
-    height: 24px;
     margin: 8px;
 }
 
 .page-footer .social-media-header {
-    color: var(--color-logo-text-light);
+    color: var(--color-text-light);
     margin-bottom: 16px;
     font-weight: 500;
 }
