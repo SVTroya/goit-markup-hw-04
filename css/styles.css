@@ -294,7 +294,7 @@ list.projects .project-item {
 .link.social:hover,
 .link.social:focus,
 .button-close:hover,
-.link.button-close:focus{
+.button-close:focus{
     background-color: var(--color-pressed-state);
 }
 
@@ -307,7 +307,7 @@ list.projects .project-item {
     box-shadow: none;
     padding: 12px 24px;
 
-    transition-property: background-color, color, border, box-shadow;
+    transition-property: background-color, color, border-color, box-shadow;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -374,7 +374,8 @@ list.projects .project-item {
     0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
-.link.project:hover .overlay {
+.link.project:hover .overlay,
+.link.project:focus .overlay{
     transform: translatey(0);
 }
 
