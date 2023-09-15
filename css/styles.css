@@ -76,7 +76,7 @@ img {
     text-decoration: none;
     color: inherit;
 
-    transition-property: color;
+    transition-property: color, border-color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -196,6 +196,7 @@ img {
     background-size: cover;
     padding: 188px 0;
     max-width: 1440px;
+    margin: 0 auto;
 }
 
 .section.section-our-projects {
@@ -229,10 +230,11 @@ img {
 
 .list.customers .customer {
     flex-basis: calc((100% - 5 * 24px) / 6);
+    height: 88px;
 }
 
 list.doings .example,
-list.projects .project {
+list.projects .project-item {
     flex-basis: calc((100% - 2 * 24px) / 3);
 }
 
@@ -290,7 +292,9 @@ list.projects .project {
 .button:hover,
 .button:focus,
 .link.social:hover,
-.link.social:focus{
+.link.social:focus,
+.button-close:hover,
+.link.button-close:focus{
     background-color: var(--color-pressed-state);
 }
 
@@ -351,29 +355,30 @@ list.projects .project {
     margin-bottom: 8px;
 }
 
-.project a:hover,
-.project a:focus {
+.project-item a:hover,
+.project-item a:focus {
     color: currentColor;
 }
 
-.project {
+.link.project{
+    display: block;
     transition-property: box-shadow;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.project:hover,
-.project:focus {
+.link.project:hover,
+.link.project:focus {
     box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
     0 1px 1px 0 rgba(46, 47, 66, 0.16),
     0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
-.project:hover .overlay {
+.link.project:hover .overlay {
     transform: translatey(0);
 }
 
-.project .container-project-info {
+.link.project .container-project-info {
     padding: 32px 16px;
     border: 1px solid var(--color-accent);
     border-top: none;
@@ -414,25 +419,20 @@ list.projects .project {
 }
 
 .container-quality-icon,
-.social,
-.customer {
-    line-height: 0;
+.link.social,
+.link.client {
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container-quality-icon {
     height: 112px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 4px;
     background: var(--color-light);
     margin-bottom: 8px;
-}
-
-.quality_icon {
-    /*margin: 24px 100px;*/
 }
 
 .list.contacts {
@@ -444,12 +444,9 @@ list.projects .project {
     height: 40px;
 }
 
-.social {
+.link.social {
     background-color: var(--color-primary-brand);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     transition-property: background-color;
     transition-duration: 250ms;
@@ -458,19 +455,23 @@ list.projects .project {
 
 .social-icon {
     fill: var(--color-light);
-    /*margin: 12px;*/
 }
 
-.customer {
+.link.client {
     border-radius: 4px;
     border: 1px solid var(--color-subtle-text);
+    color: var(--color-subtle-text)
+}
+
+.link.client:hover,
+.link.client:focus{
+    border-color: var(--color-pressed-state);
+    color: var(--color-pressed-state)
 }
 
 .customer-icon {
     display: block;
-    fill: var(--color-subtle-text);
-    width: 104px;
-    height: 56px;
+    fill: currentColor;
     margin: 16px auto;
 }
 
@@ -497,17 +498,14 @@ margin-right: 120px;
     gap: 16px;
 }
 
-.project-description {
-    color: var(--color-description-text);
-    padding: 40px 32px;
-}
-
 .container-project-img {
     position: relative;
     overflow: hidden;
 }
 
-.overlay {
+.overlay.project-description {
+    color: var(--color-description-text);
+    padding: 40px 32px;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -521,11 +519,11 @@ margin-right: 120px;
 }
 
 .backdrop {
+    position: fixed;
     display: flex;
     background: var(--color-modal-overlay);
     width: 100%;
     height: 100%;
-    position: fixed;
     top: 0;
     left: 0;
     visibility: visible;
@@ -536,17 +534,18 @@ margin-right: 120px;
 }
 
 .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
     width: 408px;
-    height: 584px;
+    min-height: 584px;
     border-radius: 4px;
     background: var(--color-modal-background);
     box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.20),
     0 1px 3px 0 rgba(0, 0, 0, 0.12),
     0 1px 1px 0 rgba(0, 0, 0, 0.14);
-    margin: auto;
-    display: flex;
-    justify-content: end;
-    transform: scale(1);
+
     transition-property: transform;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -555,7 +554,7 @@ margin-right: 120px;
 .is-hidden {
     visibility: hidden;
     opacity: 0;
-    /*pointer-events: ;*/
+    pointer-events: none;
 }
 
 .is-hidden .modal{
@@ -563,20 +562,41 @@ margin-right: 120px;
 }
 
 .close-icon {
-    width: 8px;
-    height: 8px;
     fill: var(--color-text-dark);
     margin: 8px;
+
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-close {
-    height: fit-content;
-    line-height: 0;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
     padding: 0;
     background-color: var(--color-accent);
     border: 1px solid rgba(0, 0, 0, 0.10);
     border-radius: 50%;
-    margin-top: 24px;
-    margin-right: 24px;
+
+    transition-property: background-color, border;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-close:hover,
+.button-close:focus{
+    border: none;
+}
+
+.button-close:hover .close-icon,
+.button-close:focus .close-icon{
+    fill: var(--color-text-light);
 }
 
