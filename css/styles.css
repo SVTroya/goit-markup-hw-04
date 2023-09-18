@@ -92,8 +92,8 @@ img {
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.list-qualities,
-.list-doings,
+.list-advantages,
+.list-platforms,
 .list-team,
 .list-filters,
 .list-projects,
@@ -201,7 +201,7 @@ img {
 
 .section-hero {
     background-color: var(--color-dark-background);
-    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url("../images/people_office.jpg");
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url("../images/hero/people_office.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -226,7 +226,7 @@ img {
     margin-right: auto;
 }
 
-.quality-instance,
+.advantage-instance,
 .team-member-instance {
     flex-basis: calc((100% - 3 * 24px) / 4);
 }
@@ -236,12 +236,12 @@ img {
     height: 88px;
 }
 
-.doings-example-instance,
+.platform-instance,
 .project-instance {
     flex-basis: calc((100% - 2 * 24px) / 3);
 }
 
-.section-what-are-we-doing {
+.section-platforms {
     padding-top: 0;
 }
 
@@ -320,7 +320,7 @@ img {
 }
 
 .employee-name,
-.quality-name,
+.advantage-name,
 .project-name {
     color: var(--color-text-dark);
     font-size: 20px;
@@ -387,7 +387,7 @@ img {
     text-transform: capitalize;
 }
 
-.container-quality-icon,
+.container-advantage-icon,
 .link-social,
 .link-customer {
     width: 100%;
@@ -419,7 +419,7 @@ img {
     margin: 16px auto;
 }
 
-.container-quality-icon {
+.container-advantage-icon {
     height: 112px;
     border-radius: 4px;
     background: var(--color-light);
